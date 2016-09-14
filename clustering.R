@@ -17,8 +17,8 @@ library(corrplot)
 
 
 ## Set working directory and load in data
-setwd("~/R Playground/unsupervised_learning")
-nfl_stats <- read.csv("nfl_stats_new2.csv", sep=",", header=TRUE)
+setwd("~/R Projects/unsupervised_learning")
+nfl_stats <- read.csv("nfl_stats.csv", sep=",", header=TRUE)
 summary(nfl_stats)
 
 ##Make a correlation plot 
@@ -76,7 +76,7 @@ project <- predict(princ, newdata=pmatrix)[,1:nComp]
 project.plus <- cbind(as.data.frame(project), cluster=as.factor(groups), nfl_stats)
 
 ## Add cluster results to original data
-write.table(project.plus, file = "nfl_with_clusters_n3.csv", sep = ",", col.names = NA,
+write.table(project.plus, file = "nfl_with_clusters.csv", sep = ",", col.names = NA,
             qmethod = "double")
 
 ## Plot the clusters using PC1 and PC2 as axes
